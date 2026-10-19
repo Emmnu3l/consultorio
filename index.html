@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Módulo NANDA-NIC</title>
+    <title>Catálogo Completo NANDA-NIC</title>
     <style>
         :root {
             --primary-color: #0d9488;
@@ -85,67 +85,80 @@
 <body>
 
     <div class="container">
-        <h2>Asistente de Diagnósticos NANDA</h2>
-        <input type="text" id="searchInput" class="search-box" placeholder="Buscar diagnóstico o etiqueta..." onkeyup="filterDiagnoses()">
+        <h2>Asistente NANDA-NIC (Catálogo Completo)</h2>
+        <input type="text" id="searchInput" class="search-box" placeholder="Buscar por código, etiqueta o dominio..." onkeyup="renderDiagnoses()">
 
-        <div id="diagnosesList">
-            <!-- Diagnóstico 1 -->
-            <div class="card" data-title="pat respiratoria ineficaz">
-                <span class="badge">Dominio 4: Actividad/Reposo</span>
-                <h3>00032 - Patrón respiratorio ineficaz</h3>
-                <span class="section-title">Definición:</span>
-                <p style="margin: 4px 0; font-size: 0.95rem;">Inspiración y/o espiración que no proporciona una ventilación adecuada.</p>
-                
-                <span class="section-title">Factores Relacionados (Etiología):</span>
-                <ul>
-                    <li>Fatiga de los músculos respiratorios</li>
-                    <li>Ansiedad o dolor</li>
-                </ul>
-
-                <span class="section-title">Características Definitorias:</span>
-                <ul>
-                    <li>Disnea, taquipnea</li>
-                    <li>Uso de músculos accesorios</li>
-                </ul>
-            </div>
-
-            <!-- Diagnóstico 2 -->
-            <div class="card" data-title="dolor agudo">
-                <span class="badge">Dominio 12: Confort</span>
-                <h3>00132 - Dolor agudo</h3>
-                <span class="section-title">Definición:</span>
-                <p style="margin: 4px 0; font-size: 0.95rem;">Experiencia sensorial y emocional desagradable ocasionada por una lesión tisular real o potencial.</p>
-                
-                <span class="section-title">Factores Relacionados:</span>
-                <ul>
-                    <li>Agentes lesivos (biológicos, físicos, químicos)</li>
-                </ul>
-
-                <span class="section-title">Características Definitorias:</span>
-                <ul>
-                    <li>Expresión facial de dolor</li>
-                    <li>Alteración de los parámetros hemodinámicos</li>
-                </ul>
-            </div>
-        </div>
+        <!-- Contenedor dinámico donde se cargarán todos los diagnósticos -->
+        <div id="diagnosesContainer"></div>
     </div>
 
     <script>
-        function filterDiagnoses() {
-            let input = document.getElementById('searchInput').value.toLowerCase();
-            let cards = document.getElementsByClassName('card');
-
-            for (let i = 0; i < cards.length; i++) {
-                let title = cards[i].getAttribute('data-title');
-                if (title.includes(input)) {
-                    cards[i].style.display = "";
-                } else {
-                    cards[i].style.display = "none";
-                }
+        // Aquí puedes integrar masivamente la información completa extraída de tus PDFs
+        const catalogoDiagnosticos = [
+            {
+                codigo: "00032",
+                etiqueta: "Patrón respiratorio ineficaz",
+                dominio: "Dominio 4: Actividad/Reposo",
+                definicion: "Inspiración y/o espiración que no proporciona una ventilación adecuada.",
+                relacionados: ["Fatiga de los músculos respiratorios", "Ansiedad", "Dolor"],
+                caracteristicas: ["Disnea", "Taquipnea", "Uso de músculos accesorios"]
+            },
+            {
+                codigo: "00132",
+                etiqueta: "Dolor agudo",
+                dominio: "Dominio 12: Confort",
+                definicion: "Experiencia sensorial y emocional desagradable ocasionada por una lesión tisular real o potencial.",
+                relacionados: ["Agentes lesivos (biológicos, físicos, químicos)"],
+                caracteristicas: ["Expresión facial de dolor", "Alteración de los parámetros hemodinámicos"]
+            },
+            {
+                codigo: "00004",
+                etiqueta: "Riesgo de infección",
+                dominio: "Dominio 11: Seguridad/Protección",
+                definicion: "Susceptible a la invasión y multiplicación de organismos patógenos, que puede comprometer la salud.",
+                relacionados: ["Procedimientos invasivos", "Defensas secundarias inadecuadas"],
+                caracteristicas: ["Diagnóstico de riesgo (no presenta características definitorias previas)"]
             }
+            // Puedes seguir agregando todos los objetos que necesites aquí...
+        ];
+
+        function renderDiagnoses() {
+            let filter = document.getElementById('searchInput').value.toLowerCase();
+            let container = document.getElementById('diagnosesContainer');
+            container.innerHTML = "";
+
+            let resultados = catalogoDiagnosticos.filter(item => 
+                item.etiqueta.toLowerCase().includes(filter) || 
+                item.codigo.includes(filter) || 
+                item.dominio.toLowerCase().includes(filter)
+            );
+
+            resultados.forEach(item => {
+                let card = document.createElement('div');
+                card.className = 'card';
+
+                let relacionadosHTML = item.relacionados.map(r => `<li>${r}</li>`).join('');
+                let caracteristicasHTML = item.caracteristicas.map(c => `<li>${c}</li>`).join('');
+
+                card.innerHTML = `
+                    <span class="badge">${item.dominio}</span>
+                    <h3>${item.codigo} - ${item.etiqueta}</h3>
+                    <span class="section-title">Definición:</span>
+                    <p style="margin: 4px 0; font-size: 0.95rem;">${item.definicion}</p>
+                    
+                    <span class="section-title">Factores Relacionados / Riesgo:</span>
+                    <ul>${relacionadosHTML}</ul>
+
+                    <span class="section-title">Características Definitorias:</span>
+                    <ul>${caracteristicasHTML}</ul>
+                `;
+                container.appendChild(card);
+            });
         }
+
+        // Cargar todos al iniciar la vista
+        renderDiagnoses();
     </script>
 
 </body>
 </html>
-
