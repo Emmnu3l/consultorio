@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dr. Carmelo Paniagua Palantoc - Clínica Médica en Ajalpan</title>
-    <!-- Tailwind CSS desde CDN para diseño rápido y moderno -->
+    <!-- Tailwind CSS desde CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans antialiased">
+<body class="bg-gray-50 text-gray-800 font-sans antialiased pb-16 md:pb-0">
 
     <!-- Encabezado / Banner Principal -->
     <header class="bg-blue-900 text-white shadow-lg py-12 px-4 text-center">
@@ -18,7 +18,7 @@
             <p class="text-blue-200 text-lg mt-1 font-medium">Médico Cirujano y Partero</p>
             <p class="text-xs text-blue-300 mt-1">Cédula Profesional: 2201729 | BUAP</p>
             
-            <!-- Botones de Acción Rápida (Llamar / WhatsApp) -->
+            <!-- Botones de Acción Rápida -->
             <div class="mt-6 flex flex-col sm:flex-row justify-center gap-3">
                 <a href="tel:2361005600" class="bg-white text-blue-900 font-bold px-6 py-3 rounded-lg shadow hover:bg-gray-100 transition flex items-center justify-center gap-2">
                     <i class="fas fa-phone-alt text-green-600"></i> Llamar al Consultorio
@@ -71,20 +71,20 @@
                 </ul>
             </div>
 
-            <!-- Dirección -->
+            <!-- Ubicación con enlace exacto a Google Maps -->
             <div class="bg-white p-6 rounded-xl shadow-md border border-gray-100">
                 <div class="flex items-center gap-3 mb-4 text-blue-900">
                     <i class="fas fa-map-marker-alt text-2xl"></i>
                     <h2 class="text-xl font-bold">Ubicación</h2>
                 </div>
-                <p class="text-gray-700 text-sm leading-relaxed">
+                <p class="text-gray-700 text-sm leading-relaxed mb-4">
                     <strong>Dirección:</strong><br>
-                    Calle Revolución Oriente No. 388<br>
+                    Calle Revolución Oriente S/N<br>
                     Ajalpan, Puebla.
                 </p>
-                <div class="mt-4">
-                    <a href="https://maps.google.com/?q=Revolucion+Oriente+388+Ajalpan+Puebla" target="_blank" class="inline-flex items-center text-sm font-semibold text-blue-700 hover:text-blue-900">
-                        Abrir en Google Maps <i class="fas fa-external-link-alt ml-2 text-xs"></i>
+                <div>
+                    <a href="https://maps.app.goo.gl/Q2QZ7rSt2WDEW3zd8" target="_blank" class="w-full bg-blue-50 text-blue-800 hover:bg-blue-100 font-semibold py-2 px-4 rounded-lg text-sm border border-blue-200 transition flex items-center justify-center gap-2">
+                        <i class="fas fa-location-dot text-red-600"></i> Abrir Ubicación Exacta en GPS
                     </a>
                 </div>
             </div>
@@ -92,6 +92,16 @@
         </div>
 
     </main>
+
+    <!-- Barra Flotante para Celulares -->
+    <div class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-2 flex justify-around md:hidden z-50 shadow-lg">
+        <a href="tel:2361005600" class="flex-1 bg-blue-900 text-white text-center py-2.5 mx-1 rounded-lg font-bold text-sm flex items-center justify-center gap-2">
+            <i class="fas fa-phone-alt"></i> Llamar
+        </a>
+        <a href="https://wa.me/522361005600?text=Hola,%20quisiera%20pedir%20información%20sobre%20una%20consulta" target="_blank" class="flex-1 bg-green-600 text-white text-center py-2.5 mx-1 rounded-lg font-bold text-sm flex items-center justify-center gap-2">
+            <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+    </div>
 
     <!-- Pie de página -->
     <footer class="bg-gray-800 text-gray-400 text-center py-6 text-xs mt-12">
