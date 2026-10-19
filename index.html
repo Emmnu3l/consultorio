@@ -3,211 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catálogo Completo NANDA-NIC</title>
-    <style>
-        :root {
-            --primary-color: #0d9488;
-            --bg-color: #f8fafc;
-            --card-bg: #ffffff;
-            --text-color: #1e293b;
-        }
-
-        body {
-            font-family: system-ui, -apple-system, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            margin: 0;
-            padding: 16px;
-        }
-
-        .container {
-            max-width: 650px;
-            margin: 0 auto;
-        }
-
-        h2 {
-            color: var(--primary-color);
-            font-size: 1.5rem;
-            margin-bottom: 4px;
-        }
-
-        p.subtitle {
-            color: #64748b;
-            font-size: 0.9rem;
-            margin-bottom: 16px;
-        }
-
-        .search-box {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #cbd5e1;
-            border-radius: 8px;
-            font-size: 1rem;
-            margin-bottom: 16px;
-            box-sizing: border-box;
-            outline: none;
-        }
-
-        .search-box:focus {
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.15);
-        }
-
-        .card {
-            background-color: var(--card-bg);
-            border-radius: 12px;
-            padding: 16px;
-            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-            margin-bottom: 16px;
-            border-left: 5px solid var(--primary-color);
-        }
-
-        .card h3 {
-            margin-top: 0;
-            font-size: 1.1rem;
-            color: #0f172a;
-        }
-
-        .badge {
-            display: inline-block;
-            background-color: #ccfbf1;
-            color: #0f766e;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-
-        .section-title {
-            font-weight: bold;
-            font-size: 0.85rem;
-            color: #475569;
-            margin-top: 8px;
-            display: block;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        ul {
-            margin: 4px 0 8px 0;
-            padding-left: 20px;
-            font-size: 0.95rem;
-        }
-
-        li {
-            margin-bottom: 3px;
-        }
-    </style>
+    <title>Dr. Carmelo Paniagua Palantoc - Clínica Médica en Ajalpan</title>
+    <!-- Tailwind CSS desde CDN para diseño rápido y moderno -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased">
 
-    <div class="container">
-        <h2>Asistente NANDA-NIC</h2>
-        <p class="subtitle">Buscador rápido de diagnósticos de enfermería</p>
-        
-        <input type="text" id="searchInput" class="search-box" placeholder="Busca por código (ej. 00032), etiqueta o dominio..." onkeyup="renderDiagnoses()">
+    <!-- Encabezado / Banner Principal -->
+    <header class="bg-blue-900 text-white shadow-lg py-12 px-4 text-center">
+        <div class="max-w-3xl mx-auto">
+            <span class="bg-blue-800 text-blue-200 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Atención Médica General</span>
+            <h1 class="text-3xl sm:text-4xl font-extrabold mt-3">Dr. Carmelo Paniagua Palantoc</h1>
+            <p class="text-blue-200 text-lg mt-1 font-medium">Médico Cirujano y Partero</p>
+            <p class="text-xs text-blue-300 mt-1">Cédula Profesional: 2201729 | BUAP</p>
+            
+            <!-- Botones de Acción Rápida (Llamar / WhatsApp) -->
+            <div class="mt-6 flex flex-col sm:flex-row justify-center gap-3">
+                <a href="tel:2361005600" class="bg-white text-blue-900 font-bold px-6 py-3 rounded-lg shadow hover:bg-gray-100 transition flex items-center justify-center gap-2">
+                    <i class="fas fa-phone-alt text-green-600"></i> Llamar al Consultorio
+                </a>
+                <a href="https://wa.me/522361005600?text=Hola,%20quisiera%20pedir%20información%20sobre%20una%20consulta" target="_blank" class="bg-green-600 text-white font-bold px-6 py-3 rounded-lg shadow hover:bg-green-700 transition flex items-center justify-center gap-2">
+                    <i class="fab fa-whatsapp text-xl"></i> Enviar WhatsApp
+                </a>
+            </div>
+        </div>
+    </header>
 
-        <div id="diagnosesContainer"></div>
-    </div>
+    <!-- Sección de Información de Consultas y Urgencias -->
+    <main class="max-w-4xl mx-auto px-4 py-10 space-y-8">
 
-    <script>
-        // Catálogo estructurado. Puedes seguir añadiendo más objetos aquí conforme los necesites de tus manuales.
-        const catalogoDiagnosticos = [
-            {
-                codigo: "00032",
-                etiqueta: "Patrón respiratorio ineficaz",
-                dominio: "Dominio 4: Actividad / Reposo",
-                definicion: "Inspiración y/o espiración que no proporciona una ventilación adecuada.",
-                relacionados: ["Fatiga de los músculos respiratorios", "Ansiedad", "Dolor", "Deformidad musculoesquelética"],
-                caracteristicas: ["Disnea", "Taquipnea", "Uso de músculos accesorios para la respiración", "Alteración de la profundidad respiratoria"]
-            },
-            {
-                codigo: "00132",
-                etiqueta: "Dolor agudo",
-                dominio: "Dominio 12: Confort",
-                definicion: "Experiencia sensorial y emocional desagradable ocasionada por una lesión tisular real o potencial, o descrita en tales términos.",
-                relacionados: ["Agentes lesivos (biológicos, físicos, químicos, psicológicos)"],
-                caracteristicas: ["Expresión facial de dolor", "Alteración de los parámetros hemodinámicos", "Conducta expresiva", "Información codificada de dolor"]
-            },
-            {
-                codigo: "00004",
-                etiqueta: "Riesgo de infección",
-                dominio: "Dominio 11: Seguridad / Protección",
-                definicion: "Susceptible a la invasión y multiplicación de organismos patógenos, que puede comprometer la salud.",
-                relacionados: ["Procedimientos invasivos", "Defensas secundarias inadecuadas", "Conocimiento insuficiente para evitar la exposición a patógenos"],
-                caracteristicas: ["Diagnóstico de riesgo (no presenta características definitorias en su formulación)"]
-            },
-            {
-                codigo: "00047",
-                etiqueta: "Riesgo de integridad tisular deteriorada",
-                dominio: "Dominio 11: Seguridad / Protección",
-                definicion: "Susceptible a una lesión de la membrana mucosa, córnea, sistema integumentario o tejido subcutáneo.",
-                relacionados: ["Alteración de la circulación", "Déficit nutricional", "Humedad o sequedad extrema", "Conocimiento inadecuado del cuidado de la piel"],
-                caracteristicas: ["Diagnóstico de riesgo (no presenta características definitorias)"]
-            },
-            {
-                codigo: "00085",
-                etiqueta: "Deterioro de la movilidad física",
-                dominio: "Dominio 4: Actividad / Reposo",
-                definicion: "Limitación del movimiento independiente y voluntario del cuerpo o de una o más extremidades.",
-                relacionados: ["Dolor", "Déficit de fuerza muscular", "Rigidez articular", "Intolerancia a la actividad"],
-                caracteristicas: ["Dificultad para girarse", "Limitación del margen de movimientos", "Movimientos lentos", "Disminución de la habilidad motora fina"]
-            },
-            {
-                codigo: "00204",
-                etiqueta: "Perfusión tisular periférica ineficaz",
-                dominio: "Dominio 4: Actividad / Reposo",
-                definicion: "Disminución de la circulación sanguínea periférica que puede comprometer la salud.",
-                relacionados: ["Diabetes mellitus", "Tabaquismo", "Estilo de vida sedentario", "Hipertensión"],
-                caracteristicas: ["Ausencia de pulsos periféricos", "Piel fría al tacto", "Alteración de las características de la piel", "Retardo en el tiempo de llenado capilar"]
-            }
-        ];
+        <!-- Banner de Urgencias -->
+        <div class="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-lg shadow-sm">
+            <div class="flex items-start gap-3">
+                <i class="fas fa-ambulance text-amber-600 text-2xl mt-1"></i>
+                <div>
+                    <h3 class="font-bold text-amber-900">Atención de Urgencias y Emergencias 24/7</h3>
+                    <p class="text-sm text-amber-800 mt-1">
+                        Contamos con atención de urgencias fuera de horario regular a cargo de nuestro equipo médico. Ante cualquier eventualidad, comunícate inmediatamente por teléfono.
+                    </p>
+                </div>
+            </div>
+        </div>
 
-        function renderDiagnoses() {
-            let filter = document.getElementById('searchInput').value.toLowerCase().trim();
-            let container = document.getElementById('diagnosesContainer');
-            container.innerHTML = "";
+        <!-- Horarios y Ubicación -->
+        <div class="grid md:grid-cols-2 gap-6">
+            
+            <!-- Horario -->
+            <div class="bg-white p-6 rounded-xl shadow-md border border-gray-100">
+                <div class="flex items-center gap-3 mb-4 text-blue-900">
+                    <i class="fas fa-clock text-2xl"></i>
+                    <h2 class="text-xl font-bold">Horario de Consulta</h2>
+                </div>
+                <ul class="space-y-2 text-sm text-gray-700">
+                    <li class="flex justify-between border-b pb-2">
+                        <span class="font-semibold">Lunes a Sábado:</span>
+                        <span>10:00 AM - 2:00 PM</span>
+                    </li>
+                    <li class="flex justify-between border-b pb-2">
+                        <span class="font-semibold">Turno Vespertino:</span>
+                        <span>4:00 PM - 8:00 PM</span>
+                    </li>
+                    <li class="flex justify-between pt-1">
+                        <span class="font-semibold text-amber-600">Domingos:</span>
+                        <span class="text-amber-600 font-medium">Urgencias previas al teléfono</span>
+                    </li>
+                </ul>
+            </div>
 
-            let resultados = catalogoDiagnosticos.filter(item => 
-                item.etiqueta.toLowerCase().includes(filter) || 
-                item.codigo.includes(filter) || 
-                item.dominio.toLowerCase().includes(filter) ||
-                item.definicion.toLowerCase().includes(filter)
-            );
+            <!-- Dirección -->
+            <div class="bg-white p-6 rounded-xl shadow-md border border-gray-100">
+                <div class="flex items-center gap-3 mb-4 text-blue-900">
+                    <i class="fas fa-map-marker-alt text-2xl"></i>
+                    <h2 class="text-xl font-bold">Ubicación</h2>
+                </div>
+                <p class="text-gray-700 text-sm leading-relaxed">
+                    <strong>Dirección:</strong><br>
+                    Calle Revolución Oriente No. 388<br>
+                    Ajalpan, Puebla.
+                </p>
+                <div class="mt-4">
+                    <a href="https://maps.google.com/?q=Revolucion+Oriente+388+Ajalpan+Puebla" target="_blank" class="inline-flex items-center text-sm font-semibold text-blue-700 hover:text-blue-900">
+                        Abrir en Google Maps <i class="fas fa-external-link-alt ml-2 text-xs"></i>
+                    </a>
+                </div>
+            </div>
 
-            if (resultados.length === 0) {
-                container.innerHTML = `<div class="card" style="text-align: center; color: #64748b;">No se encontraron diagnósticos que coincidan con tu búsqueda.</div>`;
-                return;
-            }
+        </div>
 
-            resultados.forEach(item => {
-                let card = document.createElement('div');
-                card.className = 'card';
+    </main>
 
-                let relacionadosHTML = item.relacionados.map(r => `<li>${r}</li>`).join('');
-                let caracteristicasHTML = item.caracteristicas.map(c => `<li>${c}</li>`).join('');
-
-                card.innerHTML = `
-                    <span class="badge">${item.dominio}</span>
-                    <h3>${item.codigo} - ${item.etiqueta}</h3>
-                    
-                    <span class="section-title">Definición:</span>
-                    <p style="margin: 4px 0 8px 0; font-size: 0.95rem; line-height: 1.4;">${item.definicion}</p>
-                    
-                    <span class="section-title">Factores Relacionados / Riesgo:</span>
-                    <ul>${relacionadosHTML}</ul>
-
-                    <span class="section-title">Características Definitorias:</span>
-                    <ul>${caracteristicasHTML}</ul>
-                `;
-                container.appendChild(card);
-            });
-        }
-
-        // Cargar todos al iniciar la vista por primera vez
-        renderDiagnoses();
-    </script>
+    <!-- Pie de página -->
+    <footer class="bg-gray-800 text-gray-400 text-center py-6 text-xs mt-12">
+        <p>© 2026 Clínica Dr. Carmelo Paniagua Palantoc - Ajalpan, Puebla</p>
+    </footer>
 
 </body>
 </html>
