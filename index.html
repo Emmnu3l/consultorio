@@ -17,85 +17,69 @@
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
     body { background-color: var(--bg); color: var(--text); padding-bottom: 70px; }
     header { background: linear-gradient(135deg, var(--primary), var(--accent)); color: white; padding: 1.2rem; text-align: center; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
-    header h1 { font-size: 1.4rem; font-weight: 700; }
-    header p { font-size: 0.85rem; opacity: 0.9; }
+    header h1 { font-size: 1.3rem; font-weight: 700; }
+    header p { font-size: 0.8rem; opacity: 0.9; }
     
     .container { max-width: 800px; margin: 1rem auto; padding: 0 1rem; }
     
-    .search-box { margin-bottom: 1.5rem; position: relative; }
-    .search-input { width: 100%; padding: 0.8rem 1rem; border: 2px solid var(--border); border-radius: 12px; font-size: 1rem; outline: none; transition: all 0.2s; }
-    .search-input:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15); }
+    .controls { display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 1rem; }
+    .search-input { width: 100%; padding: 0.8rem 1rem; border: 2px solid var(--border); border-radius: 12px; font-size: 1rem; outline: none; background: #fff; }
+    .search-input:focus { border-color: var(--primary); }
+    
+    .domain-select { width: 100%; padding: 0.7rem; border: 2px solid var(--border); border-radius: 12px; font-size: 0.85rem; background: #fff; color: var(--text); outline: none; }
+    
+    .stats { font-size: 0.85rem; color: #64748b; margin-bottom: 1rem; font-weight: 500; }
     
     .grid { display: grid; gap: 1rem; }
     .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.2rem; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
-    .card-title { font-size: 1.1rem; font-weight: 600; color: var(--primary-dark); margin-bottom: 0.5rem; }
+    .card-title { font-size: 1.05rem; font-weight: 600; color: var(--primary-dark); margin-bottom: 0.5rem; }
     .badge { display: inline-block; background: #e0f2fe; color: #0369a1; padding: 0.2rem 0.6rem; border-radius: 20px; font-size: 0.75rem; font-weight: 600; margin-bottom: 0.5rem; }
     
-    .section-tag { font-size: 0.85rem; font-weight: 700; color: var(--accent); margin-top: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; }
+    .section-tag { font-size: 0.8rem; font-weight: 700; color: var(--accent); margin-top: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; }
     ul { list-style: none; margin-top: 0.4rem; }
-    li { font-size: 0.9rem; margin-bottom: 0.3rem; padding-left: 1rem; position: relative; }
+    li { font-size: 0.88rem; margin-bottom: 0.3rem; padding-left: 1rem; position: relative; }
     li::before { content: "•"; color: var(--primary); position: absolute; left: 0; font-weight: bold; }
     
-    .btn { background: var(--primary); color: white; border: none; padding: 0.6rem 1.2rem; border-radius: 8px; font-weight: 600; cursor: pointer; width: 100%; margin-top: 1rem; }
+    .btn { background: var(--primary); color: white; border: none; padding: 0.6rem 1.2rem; border-radius: 8px; font-weight: 600; cursor: pointer; width: 100%; margin-top: 1rem; font-size: 0.9rem; }
     .btn:active { transform: scale(0.98); }
     
-    /* AdMob Banner Placeholder */
-    .admeter { position: fixed; bottom: 0; left: 0; width: 100%; height: 50px; background: #e2e8f0; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: #64748b; border-top: 1px solid #cbd5e1; }
+    .no-results { text-align: center; padding: 2rem; color: #64748b; font-size: 0.95rem; }
+
+    .admeter { position: fixed; bottom: 0; left: 0; width: 100%; height: 50px; background: #e2e8f0; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: #64748b; border-top: 1px solid #cbd5e1; z-index: 10; }
   </style>
 </head>
 <body>
 
 <header>
   <h1>🏥 Asistente NANDA - NOC - NIC</h1>
-  <p>Generador de Planes de Cuidados (SAII)</p>
+  <p>Taxonomía Integrada & Generador de PLACE (SAII)</p>
 </header>
 
 <div class="container">
-  <div class="search-box">
-    <input type="text" id="searchInput" class="search-input" placeholder="🔍 Buscar por diagnóstico, síntoma o dominio (ej. Dolor, Infección)..." onkeyup="filterCards()">
+  <div class="controls">
+    <input type="text" id="searchInput" class="search-input" placeholder="🔍 Buscar por Dx, código, signo o síntoma..." oninput="renderDiagnosticos()">
+    
+    <select id="domainFilter" class="domain-select" onchange="renderDiagnosticos()">
+      <option value="ALL">📋 Todos los Dominios (1 al 13)</option>
+      <option value="1">Dominio 1: Promoción de la Salud</option>
+      <option value="2">Dominio 2: Nutrición</option>
+      <option value="3">Dominio 3: Eliminación e Intercambio</option>
+      <option value="4">Dominio 4: Actividad / Reposo</option>
+      <option value="5">Dominio 5: Percepción / Cognición</option>
+      <option value="6">Dominio 6: Autopercepción</option>
+      <option value="7">Dominio 7: Rol / Relaciones</option>
+      <option value="8">Dominio 8: Sexualidad</option>
+      <option value="9">Dominio 9: Afrontamiento / Tolerancia al Estrés</option>
+      <option value="10">Dominio 10: Principios Vitales</option>
+      <option value="11">Dominio 11: Seguridad / Protección</option>
+      <option value="12">Dominio 12: Confort</option>
+      <option value="13">Dominio 13: Crecimiento / Desarrollo</option>
+    </select>
   </div>
 
-  <div class="grid" id="diagnosticsList">
-    <!-- Card 1 -->
-    <div class="card" data-keywords="dolor agudo tejido Lesión agudizacion">
-      <span class="badge">Dominio 12: Confort</span>
-      <h2 class="card-title">00132 - Dolor Agudo</h2>
-      <p style="font-size:0.85rem; color:#64748b;"><strong>R/C:</strong> Agentes de lesiones biológicas, químicas o físicas.<br><strong>E/P:</strong> Expresión facial, conducta protectora, informe verbal.</p>
-      
-      <div class="section-tag">🎯 Resultados NOC Sugeridos:</div>
-      <ul>
-        <li><strong>1605 - Control del dolor:</strong> Reconoce el inicio, utiliza medidas preventivas y de alivio (Escala Likert 1-5).</li>
-        <li><strong>2102 - Nivel del dolor:</strong> Reporte verbal, expresiones faciales de dolor.</li>
-      </ul>
+  <div class="stats" id="statsBar">Cargando base de datos integrativa...</div>
 
-      <div class="section-tag">🛠️ Intervenciones NIC:</div>
-      <ul>
-        <li><strong>1400 - Manejo del dolor:</strong> Realizar valoración exhaustiva, evaluar eficacia de medidas de alivio.</li>
-        <li><strong>2210 - Administración de analgésicos:</strong> Comprobar orden médica, evaluar respuesta del paciente.</li>
-      </ul>
-      <button class="btn" onclick="copyPLACE('00132 - Dolor Agudo', '1605 - Control del dolor', '1400 - Manejo del dolor')">📋 Copiar Estructura PLACE</button>
-    </div>
-
-    <!-- Card 2 -->
-    <div class="card" data-keywords="riesgo infeccion defensas procediminetos invasivos">
-      <span class="badge">Dominio 11: Seguridad/Protección</span>
-      <h2 class="card-title">00004 - Riesgo de Infección</h2>
-      <p style="font-size:0.85rem; color:#64748b;"><strong>F/R:</strong> Procedimientos invasivos, defensas secundarias inadecuadas, ruptura de la piel.</p>
-      
-      <div class="section-tag">🎯 Resultados NOC Sugeridos:</div>
-      <ul>
-        <li><strong>1902 - Control del riesgo:</strong> Identifica factores de riesgo, reconoce cambios en estado de salud.</li>
-        <li><strong>0703 - Severidad de la infección:</strong> Ausencia de fiebre, drenaje purulento o eritema.</li>
-      </ul>
-
-      <div class="section-tag">🛠️ Intervenciones NIC:</div>
-      <ul>
-        <li><strong>6550 - Protección contra las infecciones:</strong> Observar signos/síntomas de infección sistémica y localizada.</li>
-        <li><strong>6540 - Control de infecciones:</strong> Aplicar precauciones estándar, higiene estricta de manos.</li>
-      </ul>
-      <button class="btn" onclick="copyPLACE('00004 - Riesgo de Infección', '1902 - Control del riesgo', '6540 - Control de infecciones')">📋 Copiar Estructura PLACE</button>
-    </div>
-  </div>
+  <div class="grid" id="diagnosticsList"></div>
 </div>
 
 <div class="admeter">
@@ -103,13 +87,89 @@
 </div>
 
 <script>
-function filterCards() {
-  let query = document.getElementById('searchInput').value.toLowerCase();
-  let cards = document.querySelectorAll('.card');
-  cards.forEach(card => {
-    let text = card.innerText.toLowerCase() + " " + card.getAttribute('data-keywords').toLowerCase();
-    card.style.display = text.includes(query) ? "block" : "none";
+// Base de Datos Estructurada de Diagnósticos NANDA-I, NOC y NIC Integrados
+const database = [
+  // Dominio 1: Promoción de la Salud
+  { codigo: "00078", diagnostico: "Gestión ineficaz de la salud", dominio: 1, dominio_nombre: "Promoción de la Salud", rc_fr: "Dificultad para gestionar regímenes terapéuticos, complejidad del esquema de tratamiento.", ep: "Fallo al incluir el tratamiento en la vida diaria, elecciones ineficaces para alcanzar objetivos de salud.", noc: [{codigo: "1601", nombre: "Conducta de cumplimiento"}, {codigo: "1805", nombre: "Conocimiento: conducta sanitaria"}], nic: [{codigo: "5240", nombre: "Asesoramiento nutricional/sanitario"}, {codigo: "5602", nombre: "Enseñanza: proceso de enfermedad"}], tags: "salud tratamiento pastillas medicacion desinteres apego" },
+  { codigo: "00099", diagnostico: "Mantenimiento ineficaz de la salud", dominio: 1, dominio_nombre: "Promoción de la Salud", rc_fr: "Deterioro cognitivo, duelo no resuelto, recursos económicos insuficientes.", ep: "Incapacidad para asumir la responsabilidad de las prácticas básicas de salud.", noc: [{codigo: "1902", nombre: "Control del riesgo"}, {codigo: "3100", nombre: "Autogestión de la enfermedad crónica"}], nic: [{codigo: "5510", nombre: "Educación para la salud"}, {codigo: "7320", nombre: "Moldeamiento de la conducta"}], tags: "descuido higiene autocuidado abandono salud" },
+
+  // Dominio 2: Nutrición
+  { codigo: "00002", diagnostico: "Nutrición desequilibrada: inferior a las necesidades corporales", dominio: 2, dominio_nombre: "Nutrición", rc_fr: "Incapacidad para ingerir o absorber nutrientes debido a factores biológicos o psicológicos.", ep: "Peso corporal 20% o más por debajo del ideal, palidez de mucosas, debilidad muscular.", noc: [{codigo: "1004", nombre: "Estado nutricional"}, {codigo: "1008", nombre: "Estado nutricional: ingestión alimentaria y de líquidos"}], nic: [{codigo: "1100", nombre: "Manejo de la nutrición"}, {codigo: "1120", nombre: "Terapia nutricional"}], tags: "nutricion peso flaco anoréxico comida desnutrición delgado" },
+  { codigo: "00027", diagnostico: "Déficit de volumen de líquidos", dominio: 2, dominio_nombre: "Nutrición", rc_fr: "Pérdida activa de líquidos (vómito, diarrea, hemorragia), fallo en mecanismos reguladores.", ep: "Sequedad de mucosas, hipotensión, taquicardia, oliguria, pérdida de peso acelerada.", noc: [{codigo: "0601", nombre: "Equilibrio hídrico"}, {codigo: "0602", nombre: "Hidratación"}], nic: [{codigo: "4120", nombre: "Manejo de fluidos"}, {codigo: "2080", nombre: "Manejo de la infusión/solución IV"}], tags: "deshidratacion sed diarrea vomito hemorragia sangre liquido" },
+  { codigo: "00179", diagnostico: "Riesgo de nivel de glucemia inestable", dominio: 2, dominio_nombre: "Nutrición", rc_fr: "Manejo inadecuado de la mediación, aportes dietéticos irregulares, estrés o enfermedad aguda.", ep: "N/A (Diagnóstico de Riesgo)", noc: [{codigo: "1820", nombre: "Conocimiento: control de la diabetes"}, {codigo: "2300", nombre: "Nivel de glucemia"}], nic: [{codigo: "2120", nombre: "Manejo de la hiperglucemia"}, {codigo: "2130", nombre: "Manejo de la hipoglucemia"}], tags: "diabetes azucar glucosa insulina dextrostix" },
+
+  // Dominio 3: Eliminación e Intercambio
+  { codigo: "00011", diagnostico: "Estreñimiento", dominio: 3, dominio_nombre: "Eliminación e Intercambio", rc_fr: "Inmovilidad, escaso aporte de fibra y líquidos, dolor al defecar.", ep: "Heces duras y secas, evacuaciones menos de 3 veces por semana, esfuerzo defecatorio.", noc: [{codigo: "0501", nombre: "Eliminación intestinal"}], nic: [{codigo: "0450", nombre: "Manejo del estreñimiento/impactación"}, {codigo: "0440", nombre: "Entrenamiento intestinal"}], tags: "estrenimiento defecar heces panza popo digestion" },
+  { codigo: "00023", diagnostico: "Retención urinaria", dominio: 3, dominio_nombre: "Eliminación e Intercambio", rc_fr: "Obstrucción, disfunción neurológica, efectos secundarios de anestesia.", ep: "Ausencia de diuresis, distensión vesical (globo vesical), goteo, dolor suprapúbico.", noc: [{codigo: "0503", nombre: "Eliminación urinaria"}], nic: [{codigo: "0620", nombre: "Cuidados de la retención urinaria"}, {codigo: "0580", nombre: "Sondaje vesical"}], tags: "orina vejiga foley sonda globo vesical no puede orinar" },
+  { codigo: "00030", diagnostico: "Deterioro del intercambio de gases", dominio: 3, dominio_nombre: "Eliminación e Intercambio", rc_fr: "Desequilibrio en la ventilación-perfusión, cambios en la membrana alveolocapilar.", ep: "Cianosis, disnea, hipoxemia, hipercapnia, confusión, somnolencia.", noc: [{codigo: "0402", nombre: "Estado respiratorio: intercambio gaseoso"}, {codigo: "0408", nombre: "Perfusíón tisular pulmonar"}], nic: [{codigo: "3320", nombre: "Oxigenoterapia"}, {codigo: "3350", nombre: "Monitorización respiratoria"}], tags: "cianosis cianotico morado aire falta oxigeno saturacion" },
+
+  // Dominio 4: Actividad / Reposo
+  { codigo: "00032", diagnostico: "Patrón respiratorio ineficaz", dominio: 4, dominio_nombre: "Actividad / Reposo", rc_fr: "Ansiedad, fatiga de músculos respiratorios, deformación de pared torácica.", ep: "Disnea, taquipnea, uso de músculos accesorios, aleteo nasal.", noc: [{codigo: "0403", nombre: "Estado respiratorio: ventilación"}], nic: [{codigo: "3390", nombre: "Ayuda a la ventilación"}, {codigo: "3320", nombre: "Oxigenoterapia"}], tags: "respiracion disnea aire pulmon falta de aire ahogo taquipnea" },
+  { codigo: "00085", diagnostico: "Deterioro de la movilidad física", dominio: 4, dominio_nombre: "Actividad / Reposo", rc_fr: "Deterioro neuromuscular, rigidez articular, dolor, falta de condición física.", ep: "Limitación del movimiento independiente, inestabilidad postural, marcha lenta.", noc: [{codigo: "0208", nombre: "Nivel de movilidad"}, {codigo: "0200", nombre: "Ambulación"}], nic: [{codigo: "0221", nombre: "Terapia de ejercicios: ambulación"}, {codigo: "0840", nombre: "Cambio de posición"}], tags: "caminar mover encamado inmovil fractura fuerza marcha" },
+  { codigo: "00095", diagnostico: "Insomnio", dominio: 4, dominio_nombre: "Actividad / Reposo", rc_fr: "Estrés, ansiedad, entorno ruidoso, dolor, malestar físico.", ep: "Dificultad para conciliar o mantener el sueño, despertar temprano, cansancio diurno.", noc: [{codigo: "0004", nombre: "Sueño"}, {codigo: "0003", nombre: "Descanso"}], nic: [{codigo: "1850", nombre: "Mejorar el sueño"}, {codigo: "6482", nombre: "Manejo del entorno: confort"}], tags: "sueño dormir cansado insomnio noche desvelo" },
+
+  // Dominio 5: Percepción / Cognición
+  { codigo: "00126", diagnostico: "Conocimiento deficiente", dominio: 5, dominio_nombre: "Percepción / Cognición", rc_fr: "Falta de exposición a la información, complejidad del conocimiento, poca familiaridad.", ep: "Seguimiento inexacto de instrucciones, comportamiento no adaptativo.", noc: [{codigo: "1803", nombre: "Conocimiento: proceso de la enfermedad"}, {codigo: "1813", nombre: "Conocimiento: régimen terapéutico"}], nic: [{codigo: "5602", nombre: "Enseñanza: proceso de enfermedad"}, {codigo: "5618", nombre: "Enseñanza: procedimiento/tratamiento"}], tags: "no sabe ignorancia informacion dudas instruccion ignorante" },
+
+  // Dominio 9: Afrontamiento / Tolerancia al Estrés
+  { codigo: "00146", diagnostico: "Ansiedad", dominio: 9, dominio_nombre: "Afrontamiento / Tolerancia al Estrés", rc_fr: "Estresores, amenaza de cambio en el estado de salud, entorno desconocido.", ep: "Inquietud, insomnio, angustia, taquicardia, conducta asustada.", noc: [{codigo: "1211", nombre: "Nivel de ansiedad"}, {codigo: "1402", nombre: "Autocontrol de la ansiedad"}], nic: [{codigo: "5820", nombre: "Disminución de la ansiedad"}, {codigo: "5880", nombre: "Técnica de relajación"}], tags: "ansiedad miedo angustia estrés nervios angustiado" },
+
+  // Dominio 11: Seguridad / Protección
+  { codigo: "00004", diagnostico: "Riesgo de infección", dominio: 11, dominio_nombre: "Seguridad / Protección", rc_fr: "Procedimientos invasivos, defensas secundarias inadecuadas, ruptura de la piel.", ep: "N/A (Diagnóstico de Riesgo)", noc: [{codigo: "1902", nombre: "Control del riesgo"}, {codigo: "0703", nombre: "Severidad de la infección"}], nic: [{codigo: "6550", nombre: "Protección contra las infecciones"}, {codigo: "6540", nombre: "Control de infecciones"}], tags: "infeccion bacteria virus herida cateter sonda germen herida operacion" },
+  { codigo: "00007", diagnostico: "Hipertermia", dominio: 11, dominio_nombre: "Seguridad / Protección", rc_fr: "Deshidratación, enfermedad, trauma, aumento de la tasa metabólica.", ep: "Temperatura corporal superior al rango normal (>37.8°C), piel caliente al tacto, taquicardia.", noc: [{codigo: "0800", nombre: "Termorregulación"}], nic: [{codigo: "3740", nombre: "Tratamiento de la fiebre"}, {codigo: "3900", nombre: "Regulación de la temperatura"}], tags: "fiebre calentura temperatura calor hipertermia febril" },
+  { codigo: "00031", diagnostico: "Limpieza ineficaz de las vías aéreas", dominio: 11, dominio_nombre: "Seguridad / Protección", rc_fr: "Exceso de mucosidad, vía aérea artificial, tabaquismo, espasmo de vías aéreas.", ep: "Tos ineficaz, esputo excesivo, ruidos respiratorios adventicios (estertores, sibilancias).", noc: [{codigo: "0410", nombre: "Estado respiratorio: permeabilidad de vías aéreas"}], nic: [{codigo: "3140", nombre: "Manejo de la vía aérea"}, {codigo: "3230", nombre: "Fisioterapia torácica"}], tags: "flemas tos mocos secreciones traqueo garganta ahogo" },
+  { codigo: "00046", diagnostico: "Deterioro de la integridad cutánea", dominio 11, dominio_nombre: "Seguridad / Protección", rc_fr: "Inmovilidad, humedad, factores mecánicos (fricción/cizallamiento), malnutrición.", ep: "Alteración de la superficie de la piel (ruptura de epidermis/dermis).", noc: [{codigo: "1101", nombre: "Integridad tisular: piel y membranas mucosas"}], nic: [{codigo: "3584", nombre: "Cuidados de la piel: tratamiento local"}, {codigo: "3540", nombre: "Prevención de úlceras por presión"}], tags: "piel herida ulcera escara presion quemadura raspon piel rota" },
+  { codigo: "00155", diagnostico: "Riesgo de caídas", dominio: 11, dominio_nombre: "Seguridad / Protección", rc_fr: "Edad > 65 años, prótesis, alteración del equilibrio, entorno poco iluminado, medicación sedante.", ep: "N/A (Diagnóstico de Riesgo)", noc: [{codigo: "1909", nombre: "Conducta de prevención de caídas"}, {codigo: "1912", nombre: "Caídas"}], nic: [{codigo: "6490", nombre: "Prevención de caídas"}, {codigo: "6486", nombre: "Manejo del entorno: seguridad"}], tags: "caida tropiezo mareo viejo anciano muleta suelo resbaloso" },
+
+  // Dominio 12: Confort
+  { codigo: "00132", diagnostico: "Dolor agudo", dominio: 12, dominio_nombre: "Confort", rc_fr: "Agentes de lesiones biológicas, químicas o físicas.", ep: "Expresión facial de dolor, conducta protectora, informe verbal de la intensidad.", noc: [{codigo: "1605", nombre: "Control del dolor"}, {codigo: "2102", nombre: "Nivel del dolor"}], nic: [{codigo: "1400", nombre: "Manejo del dolor"}, {codigo: "2210", nombre: "Administración de analgésicos"}], tags: "dolor agudo molestias punzada lesion molestia doloroso" },
+  { codigo: "00133", diagnostico: "Dolor crónico", dominio: 12, dominio_nombre: "Confort", rc_fr: "Incapacidad física o psicosocial crónica, lesiones tisulares persistentes.", ep: "Informe verbal de dolor mayor a 3 meses, alteración de la capacidad para continuar actividades.", noc: [{codigo: "2101", nombre: "Dolor: efectos nocivos"}, {codigo: "1605", nombre: "Control del dolor"}], nic: [{codigo: "1400", nombre: "Manejo del dolor"}, {codigo: "2380", nombre: "Manejo de la medicación"}], tags: "dolor largo tiempo meses cronico reuma cancer hueso" }
+];
+
+function renderDiagnosticos() {
+  const query = document.getElementById('searchInput').value.toLowerCase().trim();
+  const domain = document.getElementById('domainFilter').value;
+  const container = document.getElementById('diagnosticsList');
+  const stats = document.getElementById('statsBar');
+
+  let filtered = database.filter(item => {
+    const matchesDomain = (domain === 'ALL' || item.dominio.toString() === domain);
+    const searchTarget = `${item.codigo} ${item.diagnostico} ${item.rc_fr} ${item.ep} ${item.tags}`.toLowerCase();
+    const matchesSearch = searchTarget.includes(query);
+    return matchesDomain && matchesSearch;
   });
+
+  stats.innerText = `Encontrados: ${filtered.length} diagnósticos.`;
+
+  if (filtered.length === 0) {
+    container.innerHTML = `<div class="no-results">❌ No se encontró ningún diagnóstico para esa palabra o dominio.</div>`;
+    return;
+  }
+
+  container.innerHTML = filtered.map(item => `
+    <div class="card">
+      <span class="badge">Dominio ${item.dominio}: ${item.dominio_nombre}</span>
+      <h2 class="card-title">${item.codigo} - ${item.diagnostico}</h2>
+      <p style="font-size:0.85rem; color:#64748b;">
+        <strong>R/C - F/R:</strong> ${item.rc_fr}<br>
+        <strong>E/P:</strong> ${item.ep}
+      </p>
+      
+      <div class="section-tag">🎯 Resultados NOC Sugeridos:</div>
+      <ul>
+        ${item.noc.map(n => `<li><strong>${n.codigo}:</strong>${n.nombre}</li>`).join('')}
+      </ul>
+
+      <div class="section-tag">🛠️ Intervenciones NIC Sugeridas:</div>
+      <ul>
+        ${item.nic.map(n => `<li><strong>${n.codigo}:</strong>${n.nombre}</li>`).join('')}
+      </ul>
+
+      <button class="btn" onclick="copyPLACE('${item.codigo} - ${item.diagnostico}', '${item.noc[0]?.nombre || ''}', '${item.nic[0]?.nombre || ''}')">
+        📋 Copiar Estructura PLACE
+      </button>
+    </div>
+  `).join('');
 }
 
 function copyPLACE(nanda, noc, nic) {
@@ -117,6 +177,9 @@ function copyPLACE(nanda, noc, nic) {
   navigator.clipboard.writeText(text);
   alert("¡Estructura del PLACE copiada al portapapeles!");
 }
+
+// Cargar la vista inicial
+renderDiagnosticos();
 </script>
 </body>
 </html>
