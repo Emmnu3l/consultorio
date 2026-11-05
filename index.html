@@ -3,26 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cuidados de Enfermería de Mediana Complejidad en el Niño y Adolescente</title>
+    <title>Guía Integral de Cuidados de Enfermería en Pediatría y Adolescencia</title>
     <style>
         :root {
-            --primary-color: #0284c7;
-            --secondary-color: #0369a1;
-            --bg-color: #f8fafc;
+            --primary: #0284c7;
+            --secondary: #0369a1;
+            --bg: #f8fafc;
             --card-bg: #ffffff;
-            --text-color: #334155;
-            --border-color: #e2e8f0;
+            --text: #334155;
+            --border: #e2e8f0;
         }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            background-color: var(--bg);
+            color: var(--text);
             line-height: 1.6;
             margin: 0;
             padding: 20px;
         }
         .container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
             background: var(--card-bg);
             padding: 40px;
@@ -30,43 +30,50 @@
             box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
         }
         h1 {
-            color: var(--primary-color);
+            color: var(--primary);
             text-align: center;
-            border-bottom: 3px solid var(--primary-color);
+            border-bottom: 3px solid var(--primary);
             padding-bottom: 15px;
             margin-bottom: 30px;
         }
         h2 {
-            color: var(--secondary-color);
-            border-left: 5px solid var(--primary-color);
-            padding-left: 10px;
-            margin-top: 40px;
+            color: var(--secondary);
+            border-left: 5px solid var(--primary);
+            padding-left: 12px;
+            margin-top: 45px;
             margin-bottom: 20px;
+            background: #f1f5f9;
+            padding-top: 8px;
+            padding-bottom: 8px;
+            border-radius: 0 6px 6px 0;
         }
         h3 {
             color: #0f172a;
             margin-top: 25px;
+            border-bottom: 1px dashed var(--border);
+            padding-bottom: 5px;
         }
         ul {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             padding-left: 20px;
         }
         li {
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
         .card {
-            background: #f1f5f9;
-            border: 1px solid var(--border-color);
+            background: #ffffff;
+            border: 1px solid var(--border);
             border-radius: 8px;
             padding: 20px;
             margin-bottom: 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
         }
         footer {
             text-align: center;
             margin-top: 50px;
             font-size: 0.875rem;
             color: #64748b;
-            border-top: 1px solid var(--border-color);
+            border-top: 1px solid var(--border);
             padding-top: 20px;
         }
     </style>
@@ -74,80 +81,131 @@
 <body>
 
 <div class="container">
-    <h1>Cuidados de Enfermería de Mediana Complejidad en el Niño y Adolescente</h1>
-    <p>Compendio clínico y metodológico basado en los planes de estudios y guías de práctica de enfermería pediátrica.</p>
+    <h1>Manual y Guía Práctica de Enfermería Pediátrica y del Adolescente</h1>
+    <p>Desarrollo exhaustivo por módulos, temas, puntos e incisos basados en los programas académicos oficiales de enfermería de mediana complejidad.</p>
 
     <!-- MÓDULO A -->
     <section>
-        <h2>A. Recién Nacido de Alto Riesgo y Patológico</h2>
-        <div class="card">
-            <h3>Lactante Prematuro y Postmaduro</h3>
-            <ul>
-                <li><strong>Definición:</strong> Prematuro es todo neonato nacido antes de las 37 semanas de gestación; postmaduro, aquel que supera las 42 semanas de gestación.</li>
-                <li><strong>Características clínicas:</strong> Inmadurez multisistémica, dificultad termorreguladora, inestabilidad respiratoria, reflejos de succión y deglución deficientes en prematuros; signos de postmadurez como piel descamada, uñas largas y riesgo de sufrimiento fetal crónico.</li>
-                <li><strong>Intervenciones de Enfermería:</strong> Manejo estricto en incubadora, control térmico neutral, monitorización cardiorrespiratoria y oximetría continua, prevención de infecciones nosocomiales y soporte nutricional enteral/parenteral.</li>
-            </ul>
-        </div>
-
-        <div class="card">
-            <h3>Norma Oficial Mexicana NOM-034-SSA2-2013</h3>
-            <ul>
-                <li><strong>Objetivo:</strong> Establecer los criterios para la prevención y control de los defectos al nacimiento en México, enfocándose en el diagnóstico temprano, tamiz metabólico y atención oportuna.</li>
-                <li><strong>Acciones esenciales:</strong> Promoción de la salud preconcepcional, suplementación con ácido fólico, prevención de infecciones perinatales y vigilancia epidemiológica de malformaciones congénitas.</li>
-            </ul>
-        </div>
-
-        <div class="card">
-            <h3>Trastornos Adquiridos y Genéticos Principales</h3>
-            <ul>
-                <li><strong>Conducto Arterioso Persistente (CAP):</strong> Falta de cierre funcional del conducto arterioso tras el nacimiento. Manejo con restricción hídrica, diuréticos y AINEs (indometacina/ibuprofeno) o cierre quirúrgico.</li>
-                <li><strong>Enterocolitis Necrosante (ECN):</strong> Isquemia y necrosis de la mucosa intestinal. Cuidados: reposo intestinal (ayuno), descompresión gástrica con SNG, antibioticoterapia de amplio espectro y vigilancia estrecha de signos de peritonitis.</li>
-                <li><strong>Hipotiroidismo Congénito e Hipoglucemia:</strong> Detección oportuna mediante tamiz neonatal. Administración de hormona tiroidea sustitutiva (levotiroxina) y cargas de glucosa IV según protocolos en hipoglucemia sintomática.</li>
-                <li><strong>Síndrome de Dificultad Respiratoria y Aspiración de Meconio:</strong> Déficit de surfactante pulmonar o aspiración de líquido amniótico meconial. Requiere oxigenoterapia, ventilación mecánica y administración de surfactante exógeno.</li>
-                <li><strong>Sepsis Neonatal:</strong> Infección sistémica precoz o tardía. Cuidados basados en aislamiento protector, hemocultivos, antibioticoterapia empírica y vigilancia hemodinámica.</li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- MÓDULO B, C, D, E, F, G, H -->
-    <section>
-        <h2>B, C, D, E, F, G, H. Trastornos Infantiles, Preescolares, Escolares, Adolescentes y Urgencias</h2>
+        <h2>Módulo A: Descripción Patológica de los Principales Trastornos del Recién Nacido de Alto Riesgo</h2>
         
         <div class="card">
-            <h3>Enfermedades Infeccioso-Transmisibles y Vacunación</h3>
+            <h3>Definición y Características</h3>
             <ul>
-                <li><strong>Varicela, Sarampión, Rubéola y Parotiditis:</strong> Enfermedades exantemáticas y virales altamente contagiosas. Intervenciones de enfermería basadas en aislamiento respiratorio y de contacto, control térmico, alivio del prurito y prevención de sobreinfecciones bacterianas cutáneas.</li>
-                <li><strong>Meningitis y Encefalitis:</strong> Procesos inflamatorios del sistema nervioso central. Requieren monitorización neurológica estricta (Escala de Coma de Glasgow), control de presión intracraneal y administración puntual de antibioticoterapia o antivirales.</li>
+                <li><strong>Lactante Prematuro:</strong> Neonato nacido antes de las 37 semanas de gestación. Presenta inmadurez anatómica y funcional multisistémica, dificultad termorreguladora, inestabilidad respiratoria por déficit de surfactante y reflejos de succión-deglución inmaduros.</li>
+                <li><strong>Recién Nacido Posmaduro:</strong> Neonato nacido después de las 42 semanas de gestación. Caracterizado por piel seca, descamada, sin vérmix caseoso, uñas largas, impregnación de meconio y riesgo elevado de insuficiencia placentaria e hipoxia crónica.</li>
             </ul>
         </div>
 
         <div class="card">
-            <h3>Principales Trastornos en Escolares y Adolescentes</h3>
+            <h3>Prevención y Control de Defectos al Nacimiento (NOM-034-SSA2-2013)</h3>
             <ul>
-                <li><strong>Asma y Cuidados Respiratorios:</strong> Manejo de crisis asmáticas con broncodilatadores (Salbutamol) vía inhalatoria con cámara espaciadora, oxigenoterapia y educación para el automanejo.</li>
-                <li><strong>Diabetes Mellitus Tipo 1:</strong> Control glucémico riguroso, técnica correcta de administración de insulina subcutánea, educación nutricional y prevención de cetoacidosis diabética.</li>
-                <li><strong>Trastornos de la Conducta Alimentaria (Anorexia y Bulimia):</strong> Abordaje multidisciplinario, vigilancia estricta de patrones de ingesta, balance hidroelectrolítico y apoyo emocional-psiquiátrico.</li>
-                <li><strong>Salud Mental en la Adolescencia (Depresión y Riesgo Suicida):</strong> Valoración integral del riesgo, creación de un entorno seguro, escucha activa, contención emocional y canalización oportuna con salud mental.</li>
+                <li><strong>Objetivo y Campo de Aplicación:</strong> Establecer las acciones preventivas, de vigilancia epidemiológica, diagnóstico y tratamiento oportuno de los defectos al nacimiento en todo el territorio nacional.</li>
+                <li><strong>Educación para la Salud:</strong> Fomento preconcepcional del ácido fólico, prevención de infecciones perinatales, control prenatal riguroso y tamiz metabólico neonatal obligatorio.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>Trastornos Adquiridos y Genéticos</h3>
+            <ul>
+                <li><strong>Conducto Arterioso Persistente (CAP):</strong> Falta de cierre funcional del canal vascular fetal. Cursa con soplo sistólico, hiperflujo pulmonar y insuficiencia cardíaca. Tratamiento con restricción hídrica, AINEs (indometacina/ibuprofeno) o ligadura quirúrgica.</li>
+                <li><strong>Enterocolitis Necrosante (ECN):</strong> Isquemia y necrosis de la mucosa intestinal en prematuros. Cuidados: ayuno absoluto, descompresión gástrica, antibioticoterapia de amplio espectro y vigilancia de neumoperitoneo.</li>
+                <li><strong>Hipotiroidismo y Hipoglucemia:</strong> Déficit de hormonas tiroideas (requiere levotiroxina) y niveles séricos bajos de glucosa (requiere infusiones controladas de glucosa IV para prevenir daño neurológico).</li>
+                <li><strong>Síndrome de Dificultad Respiratoria y Aspiración de Meconio:</strong> Inmadurez pulmonar o aspiración de líquido meconial con obstrucción de vía aérea. Requiere soporte ventilatorio, PEEP, oxígeno humidificado y surfactante exógeno.</li>
+                <li><strong>Eritroblastosis Fetal y Sepsis Neonatal:</strong> Incompatibilidad sanguínea materno-fetal con hemólisis severa (fototerapia/exanguinotransfusión) e infección sistémica grave de inicio precoz o tardío con aislamiento y antibioticoterapia dual.</li>
             </ul>
         </div>
     </section>
 
-    <!-- MÓDULO DE CUIDADOS PALIATIVOS Y TANATOLOGÍA -->
+    <!-- MÓDULO B -->
     <section>
-        <h2>Intervención de Enfermería en Etapa Terminal y Cuidados Paliativos Pediátricos</h2>
+        <h2>Módulo B: Intervención en Trastornos del Recién Nacido Patológico y Cuneros</h2>
         <div class="card">
-            <h3>Atención al Niño Agónico y Cuidados Interdependientes</h3>
+            <h3>Patología y Cuidados Especiales</h3>
             <ul>
-                <li><strong>Control del Dolor:</strong> Administración rigurosa de analgésicos opioides y coadyuvantes pautados según la escalera analgésica de la OMS adaptada a pediatría.</li>
-                <li><strong>Necesidades Básicas:</strong> Oxigenación paliativa, confort en la alimentación e hidratación según tolerancia, higiene estricta y preservación de la dignidad del paciente.</li>
-                <li><strong>Cuidados Espirituales y Ley de Voluntad Anticipada:</strong> Respeto a las creencias familiares, facilitación de la despedida y aplicación del marco normativo vigente sobre limitación del esfuerzo terapéutico.</li>
-                <li><strong>Protocolo de Cuidados Post-mortem:</strong> Preparación respetuosa del cuerpo, retiro de dispositivos invasivos con autorización previa, acondicionamiento estético y apoyo inmediato a los familiares en duelo.</li>
+                <li><strong>Hidrocefalia:</strong> Acumulación excesiva de líquido cefalorraquídeo. Cuidados: medición seriada del perímetro cefálico, vigilancia de signos de presión intracraneal (PIC) y preparación para colocación de válvula de derivación ventriculoperitoneal.</li>
+                <li><strong>Hiperbilirrubinemia y Fototerapia:</strong> Aumento de bilirrubina indirecta con riesgo de kernicterus. Cuidados en fototerapia: protección ocular estricta, control térmico, cambio frecuente de postura y vigilancia de diuresis y características de las evacuaciones.</li>
+                <li><strong>Alimentación Especial e Instalación de SNG / Gastrostomía:</strong> Técnicas de alimentación por sonda orogástrica/nasogástrica o gastrostomía con comprobación estricta de colocación, velocidad de infusión y prevención de broncoaspiración.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- MÓDULO C -->
+    <section>
+        <h2>Módulo C: Intervención en los Principales Trastornos del Lactante</h2>
+        <div class="card">
+            <h3>Patologías Frecuentes y Plan de Cuidados</h3>
+            <ul>
+                <li><strong>Infecciones Respiratorias y ORL (Otitis Media, Nasofaringitis, Bronquiolitis):</strong> Inflamación de vías aéreas superiores e inferiores. Cuidados: aspiración suave de secreciones, posición semifowler, hidratación adecuada y administración de broncodilatadores o antivirales.</li>
+                <li><strong>Anemia Ferropriva:</strong> Déficit de hierro en la dieta. Cuidados: administración correcta de sales de hierro por vía oral (evitando manchar piezas dentales), educación nutricional a la madre sobre introducción de alimentos ricos en hierro.</li>
+                <li><strong>Trastornos Quirúrgicos y Digestivos (Estenosis Pilórica, Intususcepción, Hernias):</strong> Obstrucciones o defectos anatómicos. Cuidados pre y postoperatorios, control estricto de líquidos, manejo del dolor y vigilancia del tracto gastrointestinal.</li>
+                <li><strong>Síndrome de Muerte Súbita del Lactante y Síndrome del Niño Maltratado:</strong> Prevención activa educando a los padres sobre posición supina al dormir (boca arriba), evitar cobertores pesados, y detección multidisciplinaria de signos de maltrato físico o negligencia infantil.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- MÓDULO D -->
+    <section>
+        <h2>Módulo D: Principales Trastornos del Preescolar</h2>
+        <div class="card">
+            <h3>Urgencias, Traumas y Accidentes</h3>
+            <ul>
+                <li><strong>Traumatismo Cráneo Encefálico y Quemaduras:</strong> Evaluación neurológica continua (Glasgow pediátrico), manejo hemodinámico, cálculo de líquidos reanimatorios (fórmula de Parkland modificada) y curación estéril de quemaduras.</li>
+                <li><strong>Envenenamientos, Intoxicaciones y Casi-ahogamiento:</strong> Identificación del agente tóxico, apoyo respiratorio avanzado, prevención de la absorción y soporte ventilatorio-oxigenatorio estricto en ahogamientos.</li>
+                <li><strong>Patologías de Urgencia (Crup, Epiglotitis, Apendicitis, Neumonía, Síndrome Nefrótico, Leucemia, Hemofilia):</strong> Aplicación de protocolos específicos de aislamiento, control del dolor, vigilancia de sangrados y administración segura de quimioterapia o hemoderivados.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- MÓDULO E -->
+    <section>
+        <h2>Módulo E: Enfermedades Infecto-Transmisibles en la Infancia</h2>
+        <div class="card">
+            <h3>Patología, Aislamiento y Control</h3>
+            <ul>
+                <li><strong>Exantemáticas y Virales (Varicela, Sarampión, Rubéola, Paperas, Tos Ferina, Influenza, Mononucleosis):</strong> Cuidados basados en precauciones estándar, aislamiento respiratorio/de contacto, control térmico, hidratación y prevención de complicaciones pulmonares o neurológicas.</li>
+                <li><strong>Infecciones Sistémicas (Hepatitis A y B, Poliomielitis, VIH/SIDA, Meningitis, Encefalitis, Infección Estreptocócica):</strong> Manejo riguroso de RPBI (NOM-087), bioseguridad, administración de profilaxis post-exposición y monitoreo hemodinámico y neurológico continuo.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- MÓDULO F -->
+    <section>
+        <h2>Módulo F: Trastornos del Escolar y Procedimientos Especiales</h2>
+        <div class="card">
+            <h3>Enfermedades y Procedimientos</h3>
+            <ul>
+                <li><strong>Patologías Prevalentes (Asma, Fiebre Reumática Aguda, Apendicitis, Diabetes Mellitus Tipo 1, Pediculosis):</strong> Cuidados integrales, control glucémico estricto, manejo del dolor postquirúrgico y educación para el autocuidado.</li>
+                <li><strong>Procedimientos Clínicos (Tricotomía cefálica, Glucometría capilar, Administración de Insulina):</strong> Ejecución bajo estrictas normas de asepsia, calibración de equipos y registro puntual en bitácoras de enfermería.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- MÓDULO G -->
+    <section>
+        <h2>Módulo G: Principales Trastornos del Adolescente</h2>
+        <div class="card">
+            <h3>Salud Física, Mental y Prevención</h3>
+            <ul>
+                <li><strong>Trastornos Físicos y Clínicos (Escoliosis, Lesiones Deportivas, Obesidad, Anorexia, Bulimia, Insuficiencia Renal, ITS, Linfoma de Hodgkin, Acné Vulgar):</strong> Valoración integral, apoyo nutricional especializado, manejo interdisciplinario de trastornos de la conducta alimentaria y acompañamiento en patologías crónicas.</li>
+                <li><strong>Salud Mental y Prevención de Riesgos (Bullying, Depresión, Riesgo Suicida, Abuso de Sustancias, Embarazo Adolescente):</strong> Creación de espacios de escucha empática, contención de crisis, prevención de conductas autolesivas y educación sexual integral.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- MÓDULO H -->
+    <section>
+        <h2>Módulo H: Cuidados Paliativos Pediátricos y Tanatología</h2>
+        <div class="card">
+            <h3>Fisiología de la Muerte y Atención al Niño Agónico</h3>
+            <ul>
+                <li><strong>Control Integral de Síntomas:</strong> Manejo paliativo del dolor con opioides, optimización de la oxigenación, soporte nutricional e hídrico enfocado en el confort, higiene y cuidados espirituales.</li>
+                <li><strong>Apoyo Tanatológico a la Familia:</strong> Estrategias de ayuda emocional a los padres ante la pérdida inminente o consumada, respeto a la Ley de Voluntad Anticipada y ejecución respetuosa del protocolo de cuidados post-mortem.</li>
             </ul>
         </div>
     </section>
 
     <footer>
-        <p>Documento compilado para integración en plataformas de desarrollo web (GitHub Pages) | Prácticas de Enfermería Pediátrica.</p>
+        <p>Documento completo estructurado para publicación en GitHub Pages | Módulo de Enfermería Pediátrica y Mediana Complejidad.</p>
     </footer>
 </div>
 
