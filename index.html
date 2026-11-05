@@ -3,110 +3,153 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Carmelo Paniagua Palantoc - Clínica Médica en Ajalpan</title>
-    <!-- Tailwind CSS desde CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Cuidados de Enfermería de Mediana Complejidad en el Niño y Adolescente</title>
+    <style>
+        :root {
+            --primary-color: #0284c7;
+            --secondary-color: #0369a1;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-color: #334155;
+            --border-color: #e2e8f0;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+        }
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: var(--secondary-color);
+            border-left: 5px solid var(--primary-color);
+            padding-left: 10px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+        h3 {
+            color: #0f172a;
+            margin-top: 25px;
+        }
+        ul {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        .card {
+            background: #f1f5f9;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 0.875rem;
+            color: #64748b;
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+    </style>
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans antialiased pb-16 md:pb-0">
+<body>
 
-    <!-- Encabezado / Banner Principal -->
-    <header class="bg-blue-900 text-white shadow-lg py-12 px-4 text-center">
-        <div class="max-w-3xl mx-auto">
-            <span class="bg-blue-800 text-blue-200 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Atención Médica General</span>
-            <h1 class="text-3xl sm:text-4xl font-extrabold mt-3">Dr. Carmelo Paniagua Palantoc</h1>
-            <p class="text-blue-200 text-lg mt-1 font-medium">Médico Cirujano y Partero</p>
-            <p class="text-xs text-blue-300 mt-1">Cédula Profesional: 2201729 | BUAP</p>
-            
-            <!-- Botones de Acción Rápida -->
-            <div class="mt-6 flex flex-col sm:flex-row justify-center gap-3">
-                <a href="tel:2361005600" class="bg-white text-blue-900 font-bold px-6 py-3 rounded-lg shadow hover:bg-gray-100 transition flex items-center justify-center gap-2">
-                    <i class="fas fa-phone-alt text-green-600"></i> Llamar al Consultorio
-                </a>
-                <a href="https://wa.me/522361005600?text=Hola,%20quisiera%20pedir%20información%20sobre%20una%20consulta" target="_blank" class="bg-green-600 text-white font-bold px-6 py-3 rounded-lg shadow hover:bg-green-700 transition flex items-center justify-center gap-2">
-                    <i class="fab fa-whatsapp text-xl"></i> Enviar WhatsApp
-                </a>
-            </div>
-        </div>
-    </header>
+<div class="container">
+    <h1>Cuidados de Enfermería de Mediana Complejidad en el Niño y Adolescente</h1>
+    <p>Compendio clínico y metodológico basado en los planes de estudios y guías de práctica de enfermería pediátrica.</p>
 
-    <!-- Sección de Información de Consultas y Urgencias -->
-    <main class="max-w-4xl mx-auto px-4 py-10 space-y-8">
-
-        <!-- Banner de Urgencias -->
-        <div class="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-lg shadow-sm">
-            <div class="flex items-start gap-3">
-                <i class="fas fa-ambulance text-amber-600 text-2xl mt-1"></i>
-                <div>
-                    <h3 class="font-bold text-amber-900">Atención de Urgencias y Emergencias 24/7</h3>
-                    <p class="text-sm text-amber-800 mt-1">
-                        Contamos con atención de urgencias fuera de horario regular a cargo de nuestro equipo médico. Ante cualquier eventualidad, comunícate inmediatamente por teléfono.
-                    </p>
-                </div>
-            </div>
+    <!-- MÓDULO A -->
+    <section>
+        <h2>A. Recién Nacido de Alto Riesgo y Patológico</h2>
+        <div class="card">
+            <h3>Lactante Prematuro y Postmaduro</h3>
+            <ul>
+                <li><strong>Definición:</strong> Prematuro es todo neonato nacido antes de las 37 semanas de gestación; postmaduro, aquel que supera las 42 semanas de gestación.</li>
+                <li><strong>Características clínicas:</strong> Inmadurez multisistémica, dificultad termorreguladora, inestabilidad respiratoria, reflejos de succión y deglución deficientes en prematuros; signos de postmadurez como piel descamada, uñas largas y riesgo de sufrimiento fetal crónico.</li>
+                <li><strong>Intervenciones de Enfermería:</strong> Manejo estricto en incubadora, control térmico neutral, monitorización cardiorrespiratoria y oximetría continua, prevención de infecciones nosocomiales y soporte nutricional enteral/parenteral.</li>
+            </ul>
         </div>
 
-        <!-- Horarios y Ubicación -->
-        <div class="grid md:grid-cols-2 gap-6">
-            
-            <!-- Horario -->
-            <div class="bg-white p-6 rounded-xl shadow-md border border-gray-100">
-                <div class="flex items-center gap-3 mb-4 text-blue-900">
-                    <i class="fas fa-clock text-2xl"></i>
-                    <h2 class="text-xl font-bold">Horario de Consulta</h2>
-                </div>
-                <ul class="space-y-2 text-sm text-gray-700">
-                    <li class="flex justify-between border-b pb-2">
-                        <span class="font-semibold">Lunes a Sábado:</span>
-                        <span>10:00 AM - 2:00 PM</span>
-                    </li>
-                    <li class="flex justify-between border-b pb-2">
-                        <span class="font-semibold">Turno Vespertino:</span>
-                        <span>4:00 PM - 8:00 PM</span>
-                    </li>
-                    <li class="flex justify-between pt-1">
-                        <span class="font-semibold text-amber-600">Domingos:</span>
-                        <span class="text-amber-600 font-medium">Urgencias previas al teléfono</span>
-                    </li>
-                </ul>
-            </div>
-
-            <!-- Ubicación con enlace exacto a Google Maps -->
-            <div class="bg-white p-6 rounded-xl shadow-md border border-gray-100">
-                <div class="flex items-center gap-3 mb-4 text-blue-900">
-                    <i class="fas fa-map-marker-alt text-2xl"></i>
-                    <h2 class="text-xl font-bold">Ubicación</h2>
-                </div>
-                <p class="text-gray-700 text-sm leading-relaxed mb-4">
-                    <strong>Dirección:</strong><br>
-                    Calle Revolución Oriente S/N<br>
-                    Ajalpan, Puebla.
-                </p>
-                <div>
-                    <a href="https://maps.app.goo.gl/Q2QZ7rSt2WDEW3zd8" target="_blank" class="w-full bg-blue-50 text-blue-800 hover:bg-blue-100 font-semibold py-2 px-4 rounded-lg text-sm border border-blue-200 transition flex items-center justify-center gap-2">
-                        <i class="fas fa-location-dot text-red-600"></i> Abrir Ubicación Exacta en GPS
-                    </a>
-                </div>
-            </div>
-
+        <div class="card">
+            <h3>Norma Oficial Mexicana NOM-034-SSA2-2013</h3>
+            <ul>
+                <li><strong>Objetivo:</strong> Establecer los criterios para la prevención y control de los defectos al nacimiento en México, enfocándose en el diagnóstico temprano, tamiz metabólico y atención oportuna.</li>
+                <li><strong>Acciones esenciales:</strong> Promoción de la salud preconcepcional, suplementación con ácido fólico, prevención de infecciones perinatales y vigilancia epidemiológica de malformaciones congénitas.</li>
+            </ul>
         </div>
 
-    </main>
+        <div class="card">
+            <h3>Trastornos Adquiridos y Genéticos Principales</h3>
+            <ul>
+                <li><strong>Conducto Arterioso Persistente (CAP):</strong> Falta de cierre funcional del conducto arterioso tras el nacimiento. Manejo con restricción hídrica, diuréticos y AINEs (indometacina/ibuprofeno) o cierre quirúrgico.</li>
+                <li><strong>Enterocolitis Necrosante (ECN):</strong> Isquemia y necrosis de la mucosa intestinal. Cuidados: reposo intestinal (ayuno), descompresión gástrica con SNG, antibioticoterapia de amplio espectro y vigilancia estrecha de signos de peritonitis.</li>
+                <li><strong>Hipotiroidismo Congénito e Hipoglucemia:</strong> Detección oportuna mediante tamiz neonatal. Administración de hormona tiroidea sustitutiva (levotiroxina) y cargas de glucosa IV según protocolos en hipoglucemia sintomática.</li>
+                <li><strong>Síndrome de Dificultad Respiratoria y Aspiración de Meconio:</strong> Déficit de surfactante pulmonar o aspiración de líquido amniótico meconial. Requiere oxigenoterapia, ventilación mecánica y administración de surfactante exógeno.</li>
+                <li><strong>Sepsis Neonatal:</strong> Infección sistémica precoz o tardía. Cuidados basados en aislamiento protector, hemocultivos, antibioticoterapia empírica y vigilancia hemodinámica.</li>
+            </ul>
+        </div>
+    </section>
 
-    <!-- Barra Flotante para Celulares -->
-    <div class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-2 flex justify-around md:hidden z-50 shadow-lg">
-        <a href="tel:2361005600" class="flex-1 bg-blue-900 text-white text-center py-2.5 mx-1 rounded-lg font-bold text-sm flex items-center justify-center gap-2">
-            <i class="fas fa-phone-alt"></i> Llamar
-        </a>
-        <a href="https://wa.me/522361005600?text=Hola,%20quisiera%20pedir%20información%20sobre%20una%20consulta" target="_blank" class="flex-1 bg-green-600 text-white text-center py-2.5 mx-1 rounded-lg font-bold text-sm flex items-center justify-center gap-2">
-            <i class="fab fa-whatsapp"></i> WhatsApp
-        </a>
-    </div>
+    <!-- MÓDULO B, C, D, E, F, G, H -->
+    <section>
+        <h2>B, C, D, E, F, G, H. Trastornos Infantiles, Preescolares, Escolares, Adolescentes y Urgencias</h2>
+        
+        <div class="card">
+            <h3>Enfermedades Infeccioso-Transmisibles y Vacunación</h3>
+            <ul>
+                <li><strong>Varicela, Sarampión, Rubéola y Parotiditis:</strong> Enfermedades exantemáticas y virales altamente contagiosas. Intervenciones de enfermería basadas en aislamiento respiratorio y de contacto, control térmico, alivio del prurito y prevención de sobreinfecciones bacterianas cutáneas.</li>
+                <li><strong>Meningitis y Encefalitis:</strong> Procesos inflamatorios del sistema nervioso central. Requieren monitorización neurológica estricta (Escala de Coma de Glasgow), control de presión intracraneal y administración puntual de antibioticoterapia o antivirales.</li>
+            </ul>
+        </div>
 
-    <!-- Pie de página -->
-    <footer class="bg-gray-800 text-gray-400 text-center py-6 text-xs mt-12">
-        <p>© 2026 Clínica Dr. Carmelo Paniagua Palantoc - Ajalpan, Puebla</p>
+        <div class="card">
+            <h3>Principales Trastornos en Escolares y Adolescentes</h3>
+            <ul>
+                <li><strong>Asma y Cuidados Respiratorios:</strong> Manejo de crisis asmáticas con broncodilatadores (Salbutamol) vía inhalatoria con cámara espaciadora, oxigenoterapia y educación para el automanejo.</li>
+                <li><strong>Diabetes Mellitus Tipo 1:</strong> Control glucémico riguroso, técnica correcta de administración de insulina subcutánea, educación nutricional y prevención de cetoacidosis diabética.</li>
+                <li><strong>Trastornos de la Conducta Alimentaria (Anorexia y Bulimia):</strong> Abordaje multidisciplinario, vigilancia estricta de patrones de ingesta, balance hidroelectrolítico y apoyo emocional-psiquiátrico.</li>
+                <li><strong>Salud Mental en la Adolescencia (Depresión y Riesgo Suicida):</strong> Valoración integral del riesgo, creación de un entorno seguro, escucha activa, contención emocional y canalización oportuna con salud mental.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- MÓDULO DE CUIDADOS PALIATIVOS Y TANATOLOGÍA -->
+    <section>
+        <h2>Intervención de Enfermería en Etapa Terminal y Cuidados Paliativos Pediátricos</h2>
+        <div class="card">
+            <h3>Atención al Niño Agónico y Cuidados Interdependientes</h3>
+            <ul>
+                <li><strong>Control del Dolor:</strong> Administración rigurosa de analgésicos opioides y coadyuvantes pautados según la escalera analgésica de la OMS adaptada a pediatría.</li>
+                <li><strong>Necesidades Básicas:</strong> Oxigenación paliativa, confort en la alimentación e hidratación según tolerancia, higiene estricta y preservación de la dignidad del paciente.</li>
+                <li><strong>Cuidados Espirituales y Ley de Voluntad Anticipada:</strong> Respeto a las creencias familiares, facilitación de la despedida y aplicación del marco normativo vigente sobre limitación del esfuerzo terapéutico.</li>
+                <li><strong>Protocolo de Cuidados Post-mortem:</strong> Preparación respetuosa del cuerpo, retiro de dispositivos invasivos con autorización previa, acondicionamiento estético y apoyo inmediato a los familiares en duelo.</li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <p>Documento compilado para integración en plataformas de desarrollo web (GitHub Pages) | Prácticas de Enfermería Pediátrica.</p>
     </footer>
+</div>
 
 </body>
 </html>
